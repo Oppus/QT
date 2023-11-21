@@ -15,6 +15,15 @@ public:
     explicit QWDialog(QWidget *parent = 0);
     ~QWDialog();
 
+private slots:
+    void on_checkBoxUnderline_clicked(bool checked);
+
+    void on_checkBoxItalic_clicked(bool checked);
+
+    void on_checkBoxBold_clicked(bool checked);
+
+    void setTextFontColor();
+
 private:
     Ui::QWDialog *ui;
 };
