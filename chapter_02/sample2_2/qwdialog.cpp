@@ -6,6 +6,9 @@ QWDialog::QWDialog(QWidget *parent) :
     ui(new Ui::QWDialog)
 {
     ui->setupUi(this);
+    QObject::connect(ui->rBtnBlack, SIGNAL(clicked()), this, SLOT(setTextFontColor()));
+    QObject::connect(ui->rBtnBlue, SIGNAL(clicked()), this, SLOT(setTextFontColor()));
+    QObject::connect(ui->rBtnRed, SIGNAL(clicked()), this, SLOT(setTextFontColor()));
 }
 
 QWDialog::~QWDialog()
@@ -42,7 +45,10 @@ void QWDialog::setTextFontColor()
         palette.setColor(QPalette::Text, Qt::black);
     else if(ui->rBtnBlue->isChecked())
         palette.setColor(QPalette::Text, Qt::blue);
+    else if(ui->rBtnRed->isChecked())
+        palette.setColor(QPalette::Text, Qt::red);
     else
+        palette.setColor(QPalette::Text, Qt::black);
 
     ui->plainTextEdit->setPalette(palette);
 }
