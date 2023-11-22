@@ -53,7 +53,7 @@ public:
     {
         if (QWDialog->objectName().isEmpty())
             QWDialog->setObjectName(QStringLiteral("QWDialog"));
-        QWDialog->resize(572, 531);
+        QWDialog->resize(449, 382);
         verticalLayout = new QVBoxLayout(QWDialog);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
