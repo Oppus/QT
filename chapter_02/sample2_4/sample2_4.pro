@@ -32,3 +32,6 @@ HEADERS += \
 
 FORMS += \
         qwmainwindow.ui
+
+RESOURCES += \
+    res.qrc
