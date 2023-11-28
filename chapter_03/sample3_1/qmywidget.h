@@ -27,7 +27,8 @@ private slots:
     void on_btnClassInfo_clicked();
     void on_btnClear_clicked();
 
-    void on_spinBoxBoy_valueChanged(int arg1);
+    void on_spinBox_valueChanged(int arg1);
+    void on_ageChaged(int value);
 
 private:
     Ui::qmywidget *ui;
