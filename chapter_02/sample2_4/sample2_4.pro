@@ -25,13 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        qwmainwindow.cpp
+        qwmainwindow.cpp \
+
 
 HEADERS += \
-        qwmainwindow.h
+        qwmainwindow.h \
+        ui_qwmainwindow.h
 
 FORMS += \
         qwmainwindow.ui
 
 RESOURCES += \
     res.qrc
+
+RC_ICONS= AppIcon.ico
+

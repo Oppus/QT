@@ -121,7 +121,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         txtEdit = new QTextEdit(centralWidget);
         txtEdit->setObjectName(QStringLiteral("txtEdit"));
-        txtEdit->setGeometry(QRect(11, 11, 256, 192));
+        txtEdit->setGeometry(QRect(0, 0, 591, 311));
         QWMainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QWMainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -165,8 +165,17 @@ public:
         mainToolBar->addAction(actCopy);
         mainToolBar->addAction(actPaste);
         mainToolBar->addSeparator();
+        mainToolBar->addAction(actFontBold);
+        mainToolBar->addAction(actFontItalic);
+        mainToolBar->addAction(actFontUnderline);
+        mainToolBar->addSeparator();
 
         retranslateUi(QWMainWindow);
+        QObject::connect(actPaste, SIGNAL(triggered()), txtEdit, SLOT(paste()));
+        QObject::connect(actCut, SIGNAL(triggered()), txtEdit, SLOT(cut()));
+        QObject::connect(actCopy, SIGNAL(triggered()), txtEdit, SLOT(copy()));
+        QObject::connect(actClose, SIGNAL(triggered()), QWMainWindow, SLOT(close()));
+        QObject::connect(actClear, SIGNAL(triggered()), txtEdit, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(QWMainWindow);
     } // setupUi
