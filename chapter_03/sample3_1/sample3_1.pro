@@ -30,7 +30,8 @@ SOURCES += \
 
 HEADERS += \
         qmywidget.h \
-    qperson.h
+    qperson.h \
+    ui_qmywidget.h
 
 FORMS += \
         qmywidget.ui

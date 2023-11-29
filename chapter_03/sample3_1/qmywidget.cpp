@@ -51,17 +51,25 @@ void qmywidget::on_btnClassInfo_clicked()
 
 }
 
-void qmywidget::on_btnClear_clicked()
-{
-
-}
-
 void qmywidget::on_spinBox_valueChanged(int arg1)
 {
-
+    Q_UNUSED(arg1);
+    QSpinBox *spinBox = qobject_cast<QSpinBox *>(sender());
+    if(spinBox->property("isBoy").toBool())
+        boy->setAge(spinBox->value());
+    else
+        girl->setAge(spinBox->value());
 }
 
 void qmywidget::on_ageChaged(int value)
 {
+    //响应QPerson的ageChanged()信号
+    Q_UNUSED(value);
+    QPerson *aPerson = qobject_cast<QPerson *>(sender());//类型投射
+    QString hisName = aPerson->property("name").toString();//姓名
+    QString hisSex = aPerson->property("sex").toString();//动态属性 构造函数中定义
+    int hisAge = aPerson->age();//通过接口函数获取年龄，上面的姓名只有m_name,没有name()
 
+    ui->txtEdit->appendPlainText(hisName+','+hisSex+
+                                 QString::asprintf(",年龄 = %d",hisAge));
 }

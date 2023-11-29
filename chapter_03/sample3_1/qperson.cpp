@@ -13,9 +13,8 @@ int QPerson::age()
 }
 
 void QPerson::setAge(int value)
-{
-    //设置age
-    m_age = value;
+{   
+    m_age = value;//设置age
     emit ageChanged(m_age);//发射信号
 }
 
