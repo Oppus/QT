@@ -21,8 +21,6 @@ public:
     ~qmywidget();
 
 private slots: 
-    void on_ageChaged(int value);
-
     void on_btnBoyInc_clicked();
     void on_btnGirlInc_clicked();
     void on_btnClassInfo_clicked();

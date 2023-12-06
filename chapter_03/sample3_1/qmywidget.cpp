@@ -48,6 +48,29 @@ void qmywidget::on_btnGirlInc_clicked()
 
 void qmywidget::on_btnClassInfo_clicked()
 {
+    //"类的元对象信息"按钮
+    //const QMetaObject *meta = boy->metaObject();
+    const QMetaObject *meta = girl->metaObject();
+    //const QMetaObject *meta = ui->spinBoy->metaObject();
+    ui->txtEdit->clear();
+
+    ui->txtEdit->appendPlainText("==元对象信息==\n");
+    ui->txtEdit->appendPlainText(QString("类名称：%1\n").arg(meta->className()));
+
+    ui->txtEdit->appendPlainText("property");
+    for(int i = meta->propertyOffset();i<meta->propertyCount();i++)
+    {
+        const char *proName = meta->property(i).name();
+        ui->txtEdit->appendPlainText(QString("属性名称=%1，属性值=2%").arg(proName).arg(boy->property(proName).toString()));
+    }
+
+    ui->txtEdit->appendPlainText("");
+    ui->txtEdit->appendPlainText("classInfo");
+    for(int i = meta->classInfoOffset();i<meta->classInfoCount();++i)
+    {
+        QMetaClassInfo classInfo = meta->classInfo(i);
+        ui->txtEdit->appendPlainText(QString("Name=%1; Value=%2").arg(classInfo.name()).arg(classInfo.value()));
+    }
 
 }
 
